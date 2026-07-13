@@ -208,6 +208,22 @@
     .sub{font-size:18px;}
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2755333964868054');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2755333964868054&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <div class="bg-decor"></div>
@@ -412,12 +428,14 @@ function telaResultado(){
     <button class="back" style="display:block;margin:22px auto 0" onclick="telaInicial()">↻ Refazer o teste</button>
   </div>`;
   window.scrollTo(0,0);
+  if(window.fbq) fbq('track','Lead',{content_name:'Quiz concluido',content_category:r.nome});
 }
 
 function irCheckout(e){
   if(CHECKOUT_URL==="#"){e.preventDefault();
     alert("Botão de checkout: conecte o link da sua plataforma (Kiwify, Hotmart, Cakto...) na variável CHECKOUT_URL do código.");
     return false;}
+  if(window.fbq) fbq('track','InitiateCheckout',{value:19.90,currency:'BRL',content_name:'Plano de Protecao Anti-Golpe'});
   return true;
 }
 
