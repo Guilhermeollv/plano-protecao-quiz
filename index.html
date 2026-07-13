@@ -444,7 +444,6 @@ function irCheckout(e){
   if(CHECKOUT_URL==="#"){e.preventDefault();
     alert("Botão de checkout: conecte o link da sua plataforma (Kiwify, Hotmart, Cakto...) na variável CHECKOUT_URL do código.");
     return false;}
-  if(window.fbq) fbq('track','InitiateCheckout',{value:19.90,currency:'BRL',content_name:'Plano de Protecao Anti-Golpe'});
   return true;
 }
 
